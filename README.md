@@ -1,36 +1,20 @@
 # Semantic Segmentation
 ### Introduction
-In this project, you'll label the pixels of a road in images using a Fully Convolutional Network (FCN).
 
-### Setup
-##### Frameworks and Packages
-Make sure you have the following is installed:
- - [Python 3](https://www.python.org/)
- - [TensorFlow](https://www.tensorflow.org/)
- - [NumPy](http://www.numpy.org/)
- - [SciPy](https://www.scipy.org/)
-##### Dataset
-Download the [Kitti Road dataset](http://www.cvlibs.net/datasets/kitti/eval_road.php) from [here](http://www.cvlibs.net/download.php?file=data_road.zip).  Extract the dataset in the `data` folder.  This will create the folder `data_road` with all the training a test images.
+The goal of this project was to implement a fully covolotional network to segment images from a dashcam into road and non raod pixels. I started by converting the provided pre-trained VGG-16 classifier to a fully convolutional network. At the Udacity Course the [Kitty Dataset](www.cvlibs.net/datasets/kitti/) was used. After that I used the [Tiramisu](https://arxiv.org/abs/1611.09326) Architecture on the [CamVid Dataset](http://mi.eng.cam.ac.uk/research/projects/VideoRec/CamVid/)   
 
-### Start
-##### Implement
-Implement the code in the `main.py` module indicated by the "TODO" comments.
-The comments indicated with "OPTIONAL" tag are not required to complete.
-##### Run
-Run the following command to run the project:
-```
-python main.py
-```
-**Note** If running this in Jupyter Notebook system messages, such as those regarding test status, may appear in the terminal rather than the notebook.
+### Semantic Segmentation
 
-### Submission
-1. Ensure you've passed all the unit tests.
-2. Ensure you pass all points on [the rubric](https://review.udacity.com/#!/rubrics/989/view).
-3. Submit the following in a zip file.
- - `helper.py`
- - `main.py`
- - `project_tests.py`
- - Newest inference images from `runs` folder
- 
- ## How to write a README
-A well written README file can enhance your project and portfolio.  Develop your abilities to create professional README files by completing [this free course](https://www.udacity.com/course/writing-readmes--ud777).
+Semantic Segmentation is the process of assigning each pixel of an image to there corrisponding class. 
+There are a couple of different approches to perform semantic segmentation
+1. One of the first approces with Deep Learning was patch classification, where each pixel was classfied by using a fixed size patch arround it. This was par example succesfuly used to segment ["Electron Micrsopy Images"](http://people.idsia.ch/~juergen/nips2012.pdf)
+2. The logical next step were the [Fully Convolutional Networks(FCN)](https://arxiv.org/abs/1411.4038). For this type of Architekture the Fully Connected Layers where replaced by Convolutional layers. With that adaption in the network architecture, it was possible to handleany input image size.  Derived from the FCN-Architekure two new Architekures are now stat of the Art.
+
+    i. Encoder-Decoder - Architecture
+For this Architecture the basic principle is that the encoder gradually reduces the spatial dimensions and aggreagates the context information and the decoder recovers the spatial dimensions and object details. In the context off medical image segmentation the [U-Net](https://arxiv.org/abs/1505.04597) is one of the mosst populat architectures. 
+
+    ii. The second approch uses Dilated convolutions instead of polling layers.
+To smooth the final segmentation Conditional Random fields are used and can be used after each Semantic Segmentation Network.  
+
+### Architecture
+To solve the problem 
