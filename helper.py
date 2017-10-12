@@ -58,7 +58,7 @@ def maybe_download_pretrained_vgg(data_dir):
         os.remove(os.path.join(vgg_path, vgg_filename))
 
 
-def gen_batch_function(data_folder, image_shape):
+def gen_batch_function(data_folder, image_shape, flip_lr=True):
     """
     Generate function to create batches of training data
     :param data_folder: Path to folder that contains all the datasets
@@ -87,6 +87,10 @@ def gen_batch_function(data_folder, image_shape):
                 image = scipy.misc.imresize(scipy.misc.imread(image_file), image_shape)
                 gt_image = scipy.misc.imresize(scipy.misc.imread(gt_image_file), image_shape)
 
+                if flip_lr and np.random.choice(2, 1)[0] == 1:
+                    image = np.fliplr(image)
+                    gt_image = np.fliplr(gt_image)
+
                 gt_bg = np.all(gt_image == background_color, axis=2)
                 gt_bg = gt_bg.reshape(*gt_bg.shape, 1)
                 gt_image = np.concatenate((gt_bg, np.invert(gt_bg)), axis=2)
@@ -101,7 +105,7 @@ def gen_batch_function(data_folder, image_shape):
 def gen_test_output(sess, logits, keep_prob, image_pl, data_folder, image_shape):
     """
     Generate test output using the test images
-    :param sess: TF session
+gt_bg.shape    :param sess: TF session
     :param logits: TF Tensor for the logits
     :param keep_prob: TF Placeholder for the dropout keep robability
     :param image_pl: TF Placeholder for the image placeholder
