@@ -94,9 +94,17 @@ operations = dict(
 
 ### Results:
 
-| ![CamVid](./CamVid-Images/0016E5_00390_2017_10_10_09_07_22_drawings.png "CamVid Image") | 
-|:--:| 
-| *Results from the Tiramisu Network trained on CamVid with 32 different classes.* |
+| [RCNN-ResNet](https://arxiv.org/abs/1506.01497) | Tiramisu | 
+|:--:|:--:| 
+| *![A](./CamVid-Images/SegRCNN/0001TP_006690_2017_10_13_10_50_25_drawings.png "R-CNN")* | *![A](./CamVid-Images/SegRCNN/0001TP_006690_2017_10_13_10_50_07_drawings.png "Seg")* |
+| *![A](./CamVid-Images/SegRCNN/0001TP_007170_2017_10_13_10_51_22_drawings.png "R-CNN")* | *![A](./CamVid-Images/SegRCNN/0001TP_007170_2017_10_13_10_51_08_drawings.png "Seg")* |
+| *![A](./CamVid-Images/SegRCNN/0001TP_010380_2017_10_13_10_53_52_drawings.png "R-CNN")* | *![A](./CamVid-Images/SegRCNN/0001TP_010380_2017_10_13_10_53_32_drawings.png "Seg")* |
+| *![A](./CamVid-Images/SegRCNN/0006R0_f00930_2017_10_13_10_26_40_drawings.png "R-CNN")* | *![A](./CamVid-Images/SegRCNN/0006R0_f00930_2017_10_13_10_26_04_drawings.png "Seg")* |
+| *![A](./CamVid-Images/SegRCNN/0006R0_f01290_2017_10_13_10_29_15_drawings.png "R-CNN")* | *![A](./CamVid-Images/SegRCNN/0006R0_f01290_2017_10_13_10_28_40_drawings.png "Seg")* |
+| *![A](./CamVid-Images/SegRCNN/0006R0_f03930_2017_10_13_10_38_55_drawings.png "R-CNN")* | *![A](./CamVid-Images/SegRCNN/0006R0_f03930_2017_10_13_10_38_19_drawings.png "Seg")* |
+| *![A](./CamVid-Images/SegRCNN/Seq05VD_f00000_2017_10_13_10_55_03_drawings.png "R-CNN")* | *![A](./CamVid-Images/SegRCNN/Seq05VD_f00000_2017_10_13_10_54_30_drawings.png "Seg")* |
+| *![A](./CamVid-Images/SegRCNN/Seq05VD_f00480_2017_10_13_10_55_47_drawings.png "R-CNN")* | *![A](./CamVid-Images/SegRCNN/Seq05VD_f00480_2017_10_13_10_55_40_drawings.png "Seg")* |
+| *![A](./CamVid-Images/SegRCNN/Seq05VD_f05100_2017_10_13_10_57_39_drawings.png "R-CNN")* | *![A](./CamVid-Images/SegRCNN/Seq05VD_f05100_2017_10_13_10_57_37_drawings.png "Seg")* |
 
 The best validation accuracy was around 90% what's around 1% worse that the accuracy mentioned at the original [paper](https://arxiv.org/abs/1611.09326) but way better that I have expected. 
 
